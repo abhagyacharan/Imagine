@@ -19,8 +19,14 @@ import star_group from './star_group.png'
 import credit_star from './credit_star.svg'
 import profile_icon from './profile_icon.png'
 import ImagineTitle from './ImagineTitle.png'
+import mail from './mail.svg'
+import github from './github.svg'
+import x from './x.svg'
 
 export const assets = {
+    mail,
+    github,
+    x,
     logo,
     logo_icon,
     facebook_icon,
