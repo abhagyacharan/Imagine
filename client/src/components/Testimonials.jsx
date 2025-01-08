@@ -5,7 +5,7 @@ const Testimonials = () => {
     return (
         <div className='flex flex-col items-center justify-center my-20 py-12'>
             <h1 className='text-3xl sm:text-4xl font-semibold mb-2'>Customer Testimonials</h1>
-            <p className='text-lg text-gray-600 mb-8'>What are users say</p>
+            <p className='text-lg text-gray-600 mb-8'>What our users say</p>
 
             <div className='flex flex-wrap gap-6'>
                 {testimonialsData.map((testimonial, index) => (
