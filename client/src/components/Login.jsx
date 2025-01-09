@@ -1,20 +1,53 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { assets } from '../assets/assets'
+import { AppContext } from '../context/AppContext';
 
 const Login = () => {
+
+  const [state, setState] = useState('Login');
+  const {setShowLogin} = useContext(AppContext)
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    }
+  }, [])
+
   return (
     <div className='absolute top-0 left-0 right-0 bottom-0 z-10 backdrop-blur-sm bg-black/30 flex justify-center items-center'>
 
-        <form>
-            <h1>Sign Up</h1>
-            <p>Welcome back! Please sign in to continue</p>
+      <form className='relative bg-white p-10 rounded-md text-slate-500'>
+        <h1 className='text-center text-2xl text-neutral-700 font-medium'>{state}</h1>
+        <p className='text-sm text-center mt-1'>{state === 'Login' ? 'Welcome back' : 'Create an account'}</p>
 
-            <div>
-                <img src={assets.user_icon} alt="" />
-                <input type="text" name="" id="" placeholder='Full Name' required/>
-            </div>
+        {state !== 'Login' && <div className='flex items-center border px-6 py-2 rounded-md mt-5'>
+          {/* <img src={assets.profile_icon} alt="" className='w-6 mr-1'/> */}
+          <input type="text" className='outline-none text-sm' name="" id="" placeholder='Full Name' required />
+        </div>}
 
-        </form>
+        <div className='flex items-center gap-2 border px-6 py-2 rounded-md mt-5'>
+          {/* <img src={assets.email_icon} alt=""/> */}
+          <input type="email" className='outline-none text-sm' name="" id="" placeholder='Email' required />
+        </div>
+
+        <div className='flex items-center gap-2 border px-6 py-2 rounded-md mt-5'>
+          {/* <img src={assets.lock_icon} alt=""/> */}
+          <input type="password" className='outline-none text-sm' name="" id="" placeholder='Password' required />
+        </div>
+
+        <p className='text-sm text-blue-500 my-4 cursor-pointer'>Forgot password?</p>
+
+        <button className='bg-blue-600 w-full text-white py-2 rounded-md'>{state === 'Login' ? 'Login' : 'Create account'}</button>
+
+        {state === 'Login' ? <p className='mt-5 text-center'>Don't have an account? <span className='text-blue-500 cursor-pointer' onClick={() => setState("Sign Up")}>Sign Up</span></p>
+          :
+          <p className='mt-5 text-center'>Already have an account? <span className='text-blue-500 cursor-pointer' onClick={() => setState("Login")}>Login</span></p>}
+
+        <img src={assets.cross_icon} onClick={() => setShowLogin(false)} 
+        alt="" className='absolute top-5 right-5 cursor-pointer' />
+      </form>
 
     </div>
   )
