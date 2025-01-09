@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <div className='flex items-center justify-betweengap gap-4 py-3 mt-20'>
 
-            <h1 className='text-3xl font-semibold '>Imagine</h1>
+            <h1 className='text-3xl font-semibold '>imagine.ai</h1>
             <p className='flex-1 border-l border-gray-400 pl-4 text-sm text-gray-500 max-sm:hidden'>All Rights Reserved. Copyright @ABC</p>
 
             <div className='flex gap-3.5'>
